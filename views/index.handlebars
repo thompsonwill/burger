@@ -1,21 +1,37 @@
-<h1>burgers</h1>
+<h1>burgers you can eat</h1>
 <div class="burger-container">
   <ul>
     {{#each burgers}}
-    <p>{{ this.burger_name }}</p>
+    {{#unless devoured}}
+  {{> burgers/burger-block devoured=true}}
+    <p>{{ this.burger_name }}     	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">Eat the burger
+	</button></p> 
+
+  {{/unless}}
     {{/each}}
   </ul>
 </div>
+<br><br>
 
+
+<h1>Eaten Burgers</h1>
 <div class="eaten">
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=false}}
+      <p>{{ this.burger_name }}</p> 
+    {{/if}}
+  {{/each}}
+</ul>
 
 </div>
-
+<br><br>
 
 <form class="create-form">
   <div class="form-group">
     <label for="burger">Burger Name:</label>
     <input type="text" id="burger_name" name="name">
   </div>
-  <button type="submit">Add Burger</button>
+  <button type="submit" class="btn small btn-success">Add Burger</button>
 </form>
