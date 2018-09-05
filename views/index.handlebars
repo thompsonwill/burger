@@ -1,10 +1,16 @@
+
+<div class="container" align="center">
+
 <h1>burgers you can eat</h1>
+
+
+
 <div class="burger-container">
   <ul>
     {{#each burgers}}
     {{#unless devoured}}
   {{> burgers/burger-block devoured=true}}
-    <p>{{ this.burger_name }}     	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}} name="devoured">Eat the burger
+    <p>{{ this.burger_name }}     	<button class="change-devoured btn btn-light" data-id="{{id}}" data-newdevoured="{{devoured}} name="devoured">Eat the burger
 	</button></p> 
 
   {{/unless}}
@@ -15,7 +21,7 @@
 
 
 <h1>Eaten Burgers</h1>
-<div class="eaten">
+<div class="eaten" >
 <ul>
   {{#each burgers}}
     {{#if devoured}}
@@ -26,9 +32,10 @@
 </ul>
 
 </div>
+</div>
 <br><br>
 
-<form class="create-form">
+<form class="create-form" align="center">
   <div class="form-group">
     <label for="burger">Burger Name:</label>
     <input type="text" id="burger_name" name="name">
