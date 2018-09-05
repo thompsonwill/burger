@@ -1,17 +1,17 @@
 
 <div class="container" align="center">
-
+<img src="/img/burger.png" height="25%" width="25%" class="image">
 <h1>burgers you can eat</h1>
 
 
 
 <div class="burger-container">
-  <ul>
+  <ul class="list-group">
     {{#each burgers}}
     {{#unless devoured}}
   {{> burgers/burger-block devoured=true}}
-    <p>{{ this.burger_name }}     	<button class="change-devoured btn btn-light" data-id="{{id}}" data-newdevoured="{{devoured}} name="devoured">Eat the burger
-	</button></p> 
+   <li class="list-group-item"> <p>{{ this.burger_name }} <button class="change-devoured btn btn-warning" data-id="{{id}}" data-newdevoured="{{devoured}} name="devoured">Eat the burger
+	</button></p> </li>
 
   {{/unless}}
     {{/each}}
@@ -22,11 +22,11 @@
 
 <h1>Eaten Burgers</h1>
 <div class="eaten" >
-<ul>
+<ul class="list-group">
   {{#each burgers}}
     {{#if devoured}}
       {{> burgers/burger-block devoured=false}}
-      <p>{{ this.burger_name }}</p> 
+     <li class="list-group-item"> <p>{{ this.burger_name }}</p></li> 
     {{/if}}
   {{/each}}
 </ul>

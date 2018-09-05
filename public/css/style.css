@@ -5,3 +5,7 @@ ul, li{
 body {
     background-color: salmon;
 }
+
+.image {
+    padding-top: 20px;
+}
