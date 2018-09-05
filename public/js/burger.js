@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-
-
-
     $(".create-form").on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
@@ -24,7 +21,24 @@ $(document).ready(function () {
         );
     });
 
+    $(".change-devoured").on("click", function (event) {
+        var id = $(this).data("id");
+        var newDevoured = $(this).data("newdevoured");
 
+        var newDevouredState = 1;
+
+        // Send the PUT request.
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: newDevouredState
+        }).then(
+            function () {
+                console.log("changed devoured to", newDevoured);
+                // Reload the page to get the updated list
+                location.reload();
+            }
+        );
+    });
 
 
 });

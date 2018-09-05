@@ -4,7 +4,7 @@
     {{#each burgers}}
     {{#unless devoured}}
   {{> burgers/burger-block devoured=true}}
-    <p>{{ this.burger_name }}     	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">Eat the burger
+    <p>{{ this.burger_name }}     	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}} name="devoured">Eat the burger
 	</button></p> 
 
   {{/unless}}
